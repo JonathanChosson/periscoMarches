@@ -10,7 +10,7 @@
               <b-avatar variant="success" v-if="validationEnfant(enfant.prenom)"></b-avatar>
               <b-avatar v-else></b-avatar>
               <p class="m-0 font-weight-bold">{{enfant.prenom}} {{enfant.nom}}</p>
-              <p>{{enfant.classe}}</p>
+              <p>{{enfant.classe}}</p><p>id : {{userActif.enfants.indexOf(enfant)}}</p>
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@ export default {
     Header,
   },
   computed:{
-    ...mapState(['logged','userActif','sessionStorage','urlApi']),
+    ...mapState(['logged','userActif','sessionStorage','urlApi','reservation']),
   },
   methods: {
     onContext(ctx) {

@@ -52,7 +52,7 @@ exports.getonereservation = (req, res, next) => {
         let tableauReservation = [];
         for (t in tableauEnfant.enfants){
             const enfant = {
-                "prenom": tableauEnfant.enfants[t].prenom,
+                "enfant": tableauEnfant.enfants[t],
                 "dates" :[]
             }
             for (i in tableauDate){
