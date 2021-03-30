@@ -5,7 +5,7 @@
     <Premiereconnexion v-if="userActif.premiereConnexion && logged"></Premiereconnexion>
     <Comptevalid v-if="!userActif.premiereConnexion && !userActif.compteValid && logged"></Comptevalid>
     <b-badge v-if="userActif.compteValid && logged" variant="secondary" class="m-2">
-      <router-link to="/reservation" class="text-white h3">Effectuer une réservation </router-link>
+      <router-link to="/reservation" class="text-white h3">Réserver </router-link>
       <b-icon icon="calendar2-date-fill" font-scale="2"></b-icon>
     </b-badge>
     <Enfantreservation></Enfantreservation>

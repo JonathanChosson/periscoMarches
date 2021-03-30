@@ -35,7 +35,10 @@ exports.inscription = (req, res, next) => {
 exports.getonereservation = (req, res, next) => {
     //obtenir tableau des dates
     async function dateArray(){
-        const reponse = await Dateresa.find()
+        let ajd = new Date();
+        ajd = ajd.toJSON();
+        ajd = ajd.split('T',1)
+        const reponse = await Dateresa.find({dateResa :{$gte : ajd[0]}})
         return reponse
     }
     

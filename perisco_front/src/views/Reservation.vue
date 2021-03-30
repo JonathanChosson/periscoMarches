@@ -10,7 +10,16 @@
               <b-avatar variant="success" v-if="validationEnfant(enfant.prenom)"></b-avatar>
               <b-avatar v-else></b-avatar>
               <p class="m-0 font-weight-bold">{{enfant.prenom}} {{enfant.nom}}</p>
-              <p>{{enfant.classe}}</p><p>id : {{userActif.enfants.indexOf(enfant)}}</p>
+              <p>{{enfant.classe}}</p>
+              <div class="d-flex justify-content-around align-self-center p-1">
+                  <div class="border border-info rounded m-1" >
+                  <p class="h5 p-1 bg-info text-white">Réservation en cours</p>
+                  <div>
+                      <b-badge class="m-1" v-for="dates in reservation.reservation[userActif.enfants.indexOf(enfant)].dates" :key="dates.id" >{{date(dates)}}</b-badge>
+                  </div>
+
+                  </div>
+              </div>
           </div>
         </div>
       </div>
@@ -140,9 +149,15 @@ export default {
               reponse.json()
               .then((data) => {
                 console.log(data);
+                location.reload();
               })
           ).catch(erreur => console.log('erreur : ' + erreur));
-    }
+    },
+    date(dates){
+            let date = dates.split('-');
+            date = `${date[2]}-${date[1]}-${date[0]}`
+            return date
+        }
   },
   mounted: function(){
         if(window.sessionStorage.length > 0){
