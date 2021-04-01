@@ -10,7 +10,8 @@ const app = express();
 
 mongoose.connect('mongodb+srv://admin:pkoipa@cluster0.0fbz5.mongodb.net/cantine?retryWrites=true&w=majority', 
     { useNewUrlParser: true,
-    useUnifiedTopology: true})
+    useUnifiedTopology: true,
+    useCreateIndex: true})
     .then(() =>console.log('Connexion à MongoDB réussi'))
     .catch(() =>console.log('Connexion à MongoDb échouée'));
 

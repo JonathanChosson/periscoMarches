@@ -15,7 +15,7 @@
                     </router-link>
                 </b-nav-item>
                 <b-nav-item v-if="userActif.compteValid && logged">
-                    <router-link to="/" class="text-dark">
+                    <router-link to="/reservation" class="text-dark">
                         <b-avatar variant="secondary" icon="calendar2-date-fill" ></b-avatar><br />
                         Réserver
                     </router-link>
