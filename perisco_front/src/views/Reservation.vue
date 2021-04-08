@@ -58,7 +58,7 @@ import { mapState } from 'vuex'
 
 
 export default {
-  name: 'Home',
+  name: 'Reservation',
   data(){
     const now = new Date()
       const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
@@ -101,16 +101,30 @@ export default {
     },
     //rempli le tableau des enfants selectionnées
     selectEnfant(enfant){
+      this.dates = [];
       const resultat = this.reservation.reservation.find(enfants => enfants.enfant.prenom == enfant.prenom)
       if(this.enfants.indexOf(enfant) === -1) {
         this.enfants.push(enfant);
         for (let i in resultat.dates){
-          this.datesValidation.push(resultat.dates[i]);
+          if(this.datesValidation.indexOf(resultat.dates[i]) === -1){
+            this.datesValidation.push(resultat.dates[i]);
+          }
         }
       }else{
+        this.dates = [];
         this.enfants.splice(this.enfants.indexOf(enfant), 1);
         for (let i in resultat.dates){
           this.datesValidation.splice(this.datesValidation.indexOf(resultat.dates[i]), 1);
+        }
+        for (let enfant in this.enfants){
+          console.log(this.enfants[enfant].prenom);
+          const resultat = this.reservation.reservation.find(enfants => enfants.enfant.prenom == this.enfants[enfant].prenom)
+          console.log(resultat.dates);
+          for (let i in resultat.dates){
+          if(this.datesValidation.indexOf(resultat.dates[i]) === -1){
+            this.datesValidation.push(resultat.dates[i]);
+          }
+        }
         }
       }
     },
