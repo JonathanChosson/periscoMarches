@@ -20,6 +20,12 @@
                         Réserver
                     </router-link>
                 </b-nav-item>
+                <b-nav-item v-if="userActif.compteValid && logged">
+                    <router-link to="/profil" class="text-dark">
+                        <b-avatar variant="secondary"></b-avatar><br />
+                        Mon profil
+                    </router-link>
+                </b-nav-item>
                 <!-- <b-nav-item v-if="logged" v-b-modal="'modif-user-modal'">
                     <b-avatar v-if="!userInfo.user.photo"></b-avatar>
                     <b-avatar v-else :src="userInfo.user.photo"></b-avatar>
