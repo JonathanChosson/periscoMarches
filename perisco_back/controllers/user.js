@@ -51,7 +51,7 @@ exports.login = (req,res,next) => {
     .catch(error => res.status(500).json({error}));
 }; 
 
-//Route modification http://localhost:3000/api/user/getone
+//Route Avoir un profil http://localhost:3000/api/user/getone
 exports.getoneprofil = (req,res,next) => {  
     let userIn = "";
     if (req.body.userId === undefined){
