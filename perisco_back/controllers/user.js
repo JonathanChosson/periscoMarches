@@ -71,3 +71,14 @@ exports.update = (req,res,next) => {
     .then(() => res.status(200).json({ message: 'Utilisateur Modifié !'}))
     .catch(error => res.status(400).json({ error })); 
 }
+
+//Route delete http://localhost:3000/api/user/delete
+exports.delete = (req,res,next) => {
+    User.findOne({_id : req.body.userId})
+    .then(() => {
+        User.deleteOne({_id: req.body.userId})
+        .then(() => res.status(200).json({message : 'Compte supprimé'}))
+        .catch(error => res.status(400).json({ error }));
+    })
+    .catch(error => res.status(500).json({ error })); 
+}

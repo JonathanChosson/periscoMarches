@@ -188,7 +188,7 @@ export default {
               reponse.json()
               .then((data) => {
                 console.log(data);
-                location.reload();
+                location.href=`http://${window.location.hostname}:8080`;
               })
           ).catch(erreur => console.log('erreur : ' + erreur));
     },

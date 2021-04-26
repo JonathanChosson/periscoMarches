@@ -13,6 +13,7 @@ export default new Vuex.Store({
       "connexion" : `http://${window.location.hostname}:3000/api/user/login`,
       "getoneprofil": `http://${window.location.hostname}:3000/api/user/getoneprofil`,
       "updateUser": `http://${window.location.hostname}:3000/api/user/update`,
+      "deleteUser": `http://${window.location.hostname}:3000/api/user/delete`,
       "reservation": `http://${window.location.hostname}:3000/api/date/inscription`,
       "getonereservation" : `http://${window.location.hostname}:3000/api/date/getonereservation`
     },

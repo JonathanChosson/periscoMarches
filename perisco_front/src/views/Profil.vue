@@ -99,7 +99,6 @@ return{
     nouvelleAdresse: "",
     nouveauTel1: "",
     nouveauTel2: "",
-
 }
 },
 components: {
@@ -110,7 +109,25 @@ computed:{
 },
 methods: {
     supprProfil(id){
-        console.log(id);
+        let tokenInfo = JSON.parse(this.sessionStorage[0])
+        let requestOption = {
+                method :"DELETE",
+                mode: "cors",
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${tokenInfo.token}`,
+                },
+                body : JSON.stringify({
+                    "userId":id,
+                })
+        }
+        fetch(this.urlApi.deleteUser, requestOption)
+        .then((reponse) => 
+            reponse.json()
+            .then(() => {
+                this.$store.commit("deconnexion")
+            })
+        ).catch(erreur => console.log('erreur : ' + erreur));
     },
     updateMode(){
         this.modeEdition = !this.modeEdition;
