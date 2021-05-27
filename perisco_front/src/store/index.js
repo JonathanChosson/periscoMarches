@@ -15,7 +15,8 @@ export default new Vuex.Store({
       "updateUser": `http://${window.location.hostname}:3000/api/user/update`,
       "deleteUser": `http://${window.location.hostname}:3000/api/user/delete`,
       "reservation": `http://${window.location.hostname}:3000/api/date/inscription`,
-      "getonereservation" : `http://${window.location.hostname}:3000/api/date/getonereservation`
+      "getonereservation" : `http://${window.location.hostname}:3000/api/date/getonereservation`,
+      "getAllProfile" : `http://${window.location.hostname}:3000/api/user/getAllProfile`
     },
     reservation :""
   },

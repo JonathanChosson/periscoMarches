@@ -12,7 +12,8 @@ exports.signup = (req, res, next) => {
         password: hash,
         premiereConnexion : true,
         compteValid: false,
-        nomDeFamille: req.body.nomDeFamille
+        nomDeFamille: req.body.nomDeFamille,
+        isAdmin: false
         });
         user.save()
         .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
@@ -59,6 +60,14 @@ exports.getoneprofil = (req,res,next) => {
     userIn = req.body.userId;
     }
     User.findOne({ _id: userIn }).select("-password")
+    .then(user => res.status(200).json(user))
+    .catch(error => res.status(400).json({ error }))
+}
+
+//Route Avoir un profil http://localhost:3000/api/user/getAllProfile
+exports.getAllProfile = (req,res,next) => {  
+    console.log('Route Get All');
+    User.find().select("-password")
     .then(user => res.status(200).json(user))
     .catch(error => res.status(400).json({ error }))
 }

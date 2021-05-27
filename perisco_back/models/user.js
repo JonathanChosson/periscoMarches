@@ -12,6 +12,7 @@ const userSchema = mongoose.Schema({
     tel1 : {type: String, required:false},
     tel2: {type: String, required:false},
     enfants: {type: Array, required:false},
+    isAdmin: {type: Boolean, required:true}
 },{timestamps: true});
 
 userSchema.plugin(uniqueValidator);

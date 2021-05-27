@@ -8,7 +8,7 @@
       <router-link to="/reservation" class="text-white h3">Réserver </router-link>
       <b-icon icon="calendar2-date-fill" font-scale="2"></b-icon>
     </b-badge>
-    <Enfantreservation></Enfantreservation>
+    <Enfantreservation v-if="userActif.compteValid && logged"></Enfantreservation>
   </div>
 </template>
 
