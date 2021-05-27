@@ -66,7 +66,6 @@ exports.getoneprofil = (req,res,next) => {
 
 //Route Avoir un profil http://localhost:3000/api/user/getAllProfile
 exports.getAllProfile = (req,res,next) => {  
-    console.log('Route Get All');
     User.find().select("-password")
     .then(user => res.status(200).json(user))
     .catch(error => res.status(400).json({ error }))
