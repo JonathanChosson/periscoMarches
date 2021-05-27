@@ -5,7 +5,6 @@ const User = require('../models/user');
 
 //Route inscription http://localhost:3000/api/user/signup
 exports.signup = (req, res, next) => {
-    console.log(req.body);
     bcrypt.hash(req.body.password, 10)
     .then(hash => {
         const user = new User({
