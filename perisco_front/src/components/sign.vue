@@ -182,7 +182,7 @@
                 })
             ).catch(erreur => console.log('erreur : ' + erreur));
         },
-
+        //inscription
         inscription(){
             let requestOption = {
                 method :"POST",

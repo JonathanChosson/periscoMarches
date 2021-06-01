@@ -79,6 +79,18 @@ exports.update = (req,res,next) => {
     .catch(error => res.status(400).json({ error })); 
 }
 
+//Route modification http://localhost:3000/api/user/updateAll
+exports.updateAll = (req,res,next) => {
+    console.log(req.body.fiche);
+    for(ficheValid in req.body.fiche){
+        console.log(req.body.fiche[ficheValid]);
+        User.updateOne({_id: req.body.fiche[ficheValid]}, {compteValid : true})
+        .then(() =>console.log('modifié'))
+        .catch(error => console.log(error)); 
+    }
+    res.status(200).json({ message: 'Utilisateurs Modifiés !'})
+}
+
 //Route delete http://localhost:3000/api/user/delete
 exports.delete = (req,res,next) => {
     User.findOne({_id : req.body.userId})
